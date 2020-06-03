@@ -43543,3 +43543,173 @@ Processing by DriversController#index as HTML
 Completed 200 OK in 56ms (Views: 53.1ms | ActiveRecord: 0.4ms)
 
 
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to RemovePhoneFromDrivers (20200603190627)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[35mCREATE TEMPORARY TABLE "adrivers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "phone" integer, "email" varchar, "customer_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.0ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_drivers_on_customer_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_drivers_on_customer_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "tindex_adrivers_on_customer_id" ON "adrivers" ("customer_id")[0m
+  [1m[35m (0.9ms)[0m  [1m[32mINSERT INTO "adrivers" ("id","first_name","last_name","phone","email","customer_id","created_at","updated_at")
+                     SELECT "id","first_name","last_name","phone","email","customer_id","created_at","updated_at" FROM "drivers"[0m
+  [1m[35m (2.0ms)[0m  [1m[35mDROP TABLE "drivers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE TABLE "drivers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "email" varchar, "customer_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='tindex_adrivers_on_customer_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='tindex_adrivers_on_customer_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[35mCREATE  INDEX "index_drivers_on_customer_id" ON "drivers" ("customer_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("id","first_name","last_name","email","customer_id","created_at","updated_at")
+                     SELECT "id","first_name","last_name","email","customer_id","created_at","updated_at" FROM "adrivers"[0m
+  [1m[35m (0.1ms)[0m  [1m[35mDROP TABLE "adrivers"[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200603190627"]]
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+Migrating to AddPhoneToDrivers (20200603190836)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.6ms)[0m  [1m[35mALTER TABLE "drivers" ADD "phone" varchar[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200603190836"]]
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_customers_on_driver_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_customers_on_driver_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_customers_drivers_on_driver_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_customers_drivers_on_driver_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_customers_drivers_on_customer_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_customers_drivers_on_customer_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_drivers_on_customer_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_drivers_on_customer_id' AND type='index'
+[0m
+Started GET "/pages" for ::1 at 2020-06-03 15:17:13 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PagesController#index as HTML
+  Rendering pages/index.html.erb within layouts/application
+  Rendered pages/index.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 315ms (Views: 304.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/home" for ::1 at 2020-06-03 15:17:15 -0400
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 33ms (Views: 31.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/drivers" for ::1 at 2020-06-03 15:17:32 -0400
+Processing by DriversController#index as HTML
+  Rendering drivers/index.html.erb within layouts/driver_layout
+  [1m[36mDriver Load (0.2ms)[0m  [1m[34mSELECT "drivers".* FROM "drivers"[0m
+  Rendered drivers/index.html.erb within layouts/driver_layout (14.4ms)
+Completed 200 OK in 64ms (Views: 40.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/drivers/1" for ::1 at 2020-06-03 15:17:38 -0400
+Processing by DriversController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDriver Load (0.8ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering drivers/show.html.erb within layouts/driver_layout
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" INNER JOIN "customers_drivers" ON "customers"."id" = "customers_drivers"."customer_id" WHERE "customers_drivers"."driver_id" = ?[0m  [["driver_id", 1]]
+  Rendered drivers/show.html.erb within layouts/driver_layout (37.8ms)
+Completed 200 OK in 98ms (Views: 88.0ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/drivers" for ::1 at 2020-06-03 15:17:39 -0400
+Processing by DriversController#index as HTML
+  Rendering drivers/index.html.erb within layouts/driver_layout
+  [1m[36mDriver Load (0.3ms)[0m  [1m[34mSELECT "drivers".* FROM "drivers"[0m
+  Rendered drivers/index.html.erb within layouts/driver_layout (5.7ms)
+Completed 200 OK in 45ms (Views: 40.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/drivers/1/edit" for ::1 at 2020-06-03 15:17:40 -0400
+Processing by DriversController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDriver Load (0.2ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering drivers/edit.html.erb within layouts/driver_layout
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  Rendered drivers/_form.html.erb (844.7ms)
+  Rendered drivers/edit.html.erb within layouts/driver_layout (847.1ms)
+Completed 200 OK in 876ms (Views: 868.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/drivers" for ::1 at 2020-06-03 15:17:44 -0400
+Processing by DriversController#index as HTML
+  Rendering drivers/index.html.erb within layouts/driver_layout
+  [1m[36mDriver Load (0.3ms)[0m  [1m[34mSELECT "drivers".* FROM "drivers"[0m
+  Rendered drivers/index.html.erb within layouts/driver_layout (6.3ms)
+Completed 200 OK in 61ms (Views: 59.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/home" for ::1 at 2020-06-03 15:17:49 -0400
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 51ms (Views: 50.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/about" for ::1 at 2020-06-03 15:17:51 -0400
+Processing by PagesController#about as HTML
+  Rendering pages/about.html.erb within layouts/application
+  Rendered pages/about.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 33ms (Views: 29.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/drivers" for ::1 at 2020-06-03 15:17:57 -0400
+Processing by DriversController#index as HTML
+  Rendering drivers/index.html.erb within layouts/driver_layout
+  [1m[36mDriver Load (0.3ms)[0m  [1m[34mSELECT "drivers".* FROM "drivers"[0m
+  Rendered drivers/index.html.erb within layouts/driver_layout (4.4ms)
+Completed 200 OK in 53ms (Views: 50.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/customers" for ::1 at 2020-06-03 15:18:06 -0400
+Processing by CustomersController#index as HTML
+  Rendering customers/index.html.erb within layouts/customer_layout
+  [1m[36mCustomer Load (0.5ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  Rendered customers/index.html.erb within layouts/customer_layout (6.0ms)
+Completed 200 OK in 64ms (Views: 61.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/home" for ::1 at 2020-06-03 15:18:13 -0400
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 44ms (Views: 43.1ms | ActiveRecord: 0.0ms)
+
+

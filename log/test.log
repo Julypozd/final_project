@@ -35224,3 +35224,1423 @@ Completed 302 Found in 5ms (ActiveRecord: 0.9ms)
   [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
   [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
   [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (2.7ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "ar_internal_metadata"."value" FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ?[0m  [["key", "environment"]]
+  [1m[35m (1.9ms)[0m  [1m[35mCREATE TABLE "customers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "phone" varchar, "email" varchar, "driver_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mselect sqlite_version(*)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX "index_customers_on_driver_id" ON "customers" ("driver_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "customers_drivers" ("customer_id" integer, "driver_id" integer)[0m
+  [1m[35m (1.0ms)[0m  [1m[35mCREATE  INDEX "index_customers_drivers_on_customer_id" ON "customers_drivers" ("customer_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_customers_drivers_on_customer_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_customers_drivers_on_customer_id' AND type='index'
+[0m
+  [1m[35m (1.3ms)[0m  [1m[35mCREATE  INDEX "index_customers_drivers_on_driver_id" ON "customers_drivers" ("driver_id")[0m
+  [1m[35m (1.1ms)[0m  [1m[35mCREATE TABLE "drivers" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar, "last_name" varchar, "email" varchar, "customer_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "phone" varchar)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE  INDEX "index_drivers_on_customer_id" ON "drivers" ("customer_id")[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT version FROM "schema_migrations"[0m
+  [1m[35m (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20200603190836)[0m
+  [1m[35m (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20200519193045),
+(20200427173502),
+(20200603190627),
+(20200601142853);
+
+[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2020-06-03 19:10:57.451811"], ["updated_at", "2020-06-03 19:10:57.451811"]]
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.1ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Gail"], ["last_name", "Pollich"], ["phone", "3265005497"], ["email", "hong@mueller.info"], ["created_at", "2020-06-03 19:10:58.799652"], ["updated_at", "2020-06-03 19:10:58.799652"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Rochel"], ["last_name", "Hayes"], ["phone", "3031353142"], ["email", "dino@kuhlman.co"], ["created_at", "2020-06-03 19:10:58.802974"], ["updated_at", "2020-06-03 19:10:58.802974"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Loyd"], ["last_name", "Braun"], ["phone", "3792538174"], ["email", "kristopher@hickle.io"], ["created_at", "2020-06-03 19:10:58.804879"], ["updated_at", "2020-06-03 19:10:58.804879"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Dinah"], ["last_name", "Boehm"], ["phone", "1369364584"], ["email", "augustine_cummerata@dicki.co"], ["created_at", "2020-06-03 19:10:58.806538"], ["updated_at", "2020-06-03 19:10:58.806538"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Staci"], ["last_name", "Emard"], ["phone", "9282826163"], ["email", "rene@shanahan.co"], ["created_at", "2020-06-03 19:10:58.808187"], ["updated_at", "2020-06-03 19:10:58.808187"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Dominic"], ["last_name", "Stanton"], ["phone", "6185826031"], ["email", "edwin@huels.org"], ["created_at", "2020-06-03 19:10:58.809779"], ["updated_at", "2020-06-03 19:10:58.809779"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Brandon"], ["last_name", "O'Reilly"], ["phone", "6665527912"], ["email", "caren@wolf.info"], ["created_at", "2020-06-03 19:10:58.811353"], ["updated_at", "2020-06-03 19:10:58.811353"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Terry"], ["last_name", "Cremin"], ["phone", "8125237040"], ["email", "isaiah@weinatbarrows.name"], ["created_at", "2020-06-03 19:10:58.814235"], ["updated_at", "2020-06-03 19:10:58.814235"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Haywood"], ["last_name", "Kling"], ["phone", "3379016909"], ["email", "weston@gradybraun.net"], ["created_at", "2020-06-03 19:10:58.816689"], ["updated_at", "2020-06-03 19:10:58.816689"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Aletha"], ["last_name", "Wolf"], ["phone", "4771259207"], ["email", "keenan@hettinger.name"], ["created_at", "2020-06-03 19:10:58.819271"], ["updated_at", "2020-06-03 19:10:58.819271"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/customers" for 127.0.0.1 at 2020-06-03 15:10:58 -0400
+Processing by CustomersController#index as HTML
+  Rendering customers/index.html.erb within layouts/customer_layout
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  Rendered customers/index.html.erb within layouts/customer_layout (11.1ms)
+Completed 200 OK in 270ms (Views: 261.4ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Mona"], ["last_name", "Baumbach"], ["phone", "2170783043"], ["email", "linda@krajcik.org"], ["created_at", "2020-06-03 19:10:59.109762"], ["updated_at", "2020-06-03 19:10:59.109762"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/customers/1" for 127.0.0.1 at 2020-06-03 15:10:59 -0400
+Processing by CustomersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering customers/show.html.erb within layouts/customer_layout
+  [1m[36mDriver Load (0.2ms)[0m  [1m[34mSELECT "drivers".* FROM "drivers" INNER JOIN "customers_drivers" ON "drivers"."id" = "customers_drivers"."driver_id" WHERE "customers_drivers"."customer_id" = ?[0m  [["customer_id", 1]]
+  Rendered customers/show.html.erb within layouts/customer_layout (34.5ms)
+Completed 200 OK in 45ms (Views: 37.0ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/customers/5000" for 127.0.0.1 at 2020-06-03 15:10:59 -0400
+Processing by CustomersController#show as HTML
+  Parameters: {"id"=>"5000"}
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5000], ["LIMIT", 1]]
+We had a not found exception.
+Redirected to http://www.example.com/customers
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Ivan"], ["last_name", "Kshlerin"], ["phone", "8829408841"], ["email", "delpha_kuhic@cristmclaughlin.name"], ["created_at", "2020-06-03 19:10:59.168652"], ["updated_at", "2020-06-03 19:10:59.168652"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Rosario"], ["last_name", "Welch"], ["phone", "2481621334"], ["email", "lesley@nolan.co"], ["created_at", "2020-06-03 19:10:59.208350"], ["updated_at", "2020-06-03 19:10:59.208350"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Collette"], ["last_name", "Tillman"], ["phone", "3589637121"], ["email", "keneth@bruenhane.org"], ["created_at", "2020-06-03 19:10:59.211734"], ["updated_at", "2020-06-03 19:10:59.211734"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Edmund"], ["last_name", "Frami"], ["phone", "8511961774"], ["email", "dimple@nitzsche.co"], ["created_at", "2020-06-03 19:10:59.215971"], ["updated_at", "2020-06-03 19:10:59.215971"]]
+  [1m[35m (0.3ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Micheal"], ["last_name", "Haag"], ["phone", "1517552005"], ["email", "bailey@little.biz"], ["created_at", "2020-06-03 19:10:59.220286"], ["updated_at", "2020-06-03 19:10:59.220286"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Belkis"], ["last_name", "Bosco"], ["phone", "6388797878"], ["email", "jasmine@dare.co"], ["created_at", "2020-06-03 19:10:59.223403"], ["updated_at", "2020-06-03 19:10:59.223403"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Sofia"], ["last_name", "Cruickshank"], ["phone", "7119518345"], ["email", "harrison_marvin@ratke.co"], ["created_at", "2020-06-03 19:10:59.226430"], ["updated_at", "2020-06-03 19:10:59.226430"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Earline"], ["last_name", "Littel"], ["phone", "4843416885"], ["email", "guadalupe.lind@okuneva.org"], ["created_at", "2020-06-03 19:10:59.229587"], ["updated_at", "2020-06-03 19:10:59.229587"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Leif"], ["last_name", "Donnelly"], ["phone", "7150255504"], ["email", "temeka_glover@boganhodkiewicz.name"], ["created_at", "2020-06-03 19:10:59.231674"], ["updated_at", "2020-06-03 19:10:59.231674"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Eva"], ["last_name", "O'Hara"], ["phone", "9725493097"], ["email", "lora@wymanthompson.name"], ["created_at", "2020-06-03 19:10:59.233683"], ["updated_at", "2020-06-03 19:10:59.233683"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/customers/new" for 127.0.0.1 at 2020-06-03 15:10:59 -0400
+Processing by CustomersController#new as HTML
+  Rendering customers/new.html.erb within layouts/customer_layout
+  [1m[36mDriver Load (0.2ms)[0m  [1m[34mSELECT "drivers".* FROM "drivers"[0m
+  Rendered customers/_form.html.erb (21.8ms)
+  Rendered customers/new.html.erb within layouts/customer_layout (23.7ms)
+Completed 200 OK in 29ms (Views: 26.8ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Junko"], ["last_name", "Lubowitz"], ["phone", "7227591138"], ["email", "george@murphysawayn.io"], ["created_at", "2020-06-03 19:10:59.270984"], ["updated_at", "2020-06-03 19:10:59.270984"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/customers/1/edit" for 127.0.0.1 at 2020-06-03 15:10:59 -0400
+Processing by CustomersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering customers/edit.html.erb within layouts/customer_layout
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT "drivers".* FROM "drivers"[0m
+  Rendered customers/_form.html.erb (3.9ms)
+  Rendered customers/edit.html.erb within layouts/customer_layout (5.3ms)
+Completed 200 OK in 10ms (Views: 7.6ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "customers"[0m
+Started POST "/customers" for 127.0.0.1 at 2020-06-03 15:10:59 -0400
+Processing by CustomersController#create as HTML
+  Parameters: {"customer"=>{"last_name"=>"Parker", "phone"=>"4150900005", "email"=>"jee.price@harvey.net"}}
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+We had a not found exception.
+Redirected to http://www.example.com/customers
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "customers"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Gene"], ["last_name", "King"], ["phone", "1234567890"], ["email", "emerson_mayer@johns.io"], ["created_at", "2020-06-03 19:10:59.308872"], ["updated_at", "2020-06-03 19:10:59.308872"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PUT "/customers/1" for 127.0.0.1 at 2020-06-03 15:10:59 -0400
+Processing by CustomersController#update as HTML
+  Parameters: {"customer"=>{"phone"=>"1234567892"}, "id"=>"1"}
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[33mUPDATE "customers" SET "phone" = ?, "updated_at" = ? WHERE "customers"."id" = ?[0m  [["phone", "1234567892"], ["updated_at", "2020-06-03 19:10:59.313067"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/customers/1
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Jermaine"], ["last_name", "Waelchi"], ["phone", "2380803846"], ["email", "phillip_schulist@heidenreich.org"], ["created_at", "2020-06-03 19:10:59.322388"], ["updated_at", "2020-06-03 19:10:59.322388"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PUT "/customers/1" for 127.0.0.1 at 2020-06-03 15:10:59 -0400
+Processing by CustomersController#update as HTML
+  Parameters: {"customer"=>{"phone"=>"1234"}, "id"=>"1"}
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering customers/edit.html.erb within layouts/customer_layout
+  [1m[36mDriver Load (0.2ms)[0m  [1m[34mSELECT "drivers".* FROM "drivers"[0m
+  Rendered customers/_form.html.erb (7.1ms)
+  Rendered customers/edit.html.erb within layouts/customer_layout (8.4ms)
+Completed 200 OK in 22ms (Views: 18.2ms | ActiveRecord: 0.4ms)
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Kiesha"], ["last_name", "Kling"], ["phone", "9228249665"], ["email", "christin.marvin@bednarhammes.org"], ["created_at", "2020-06-03 19:10:59.356538"], ["updated_at", "2020-06-03 19:10:59.356538"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started DELETE "/customers/1" for 127.0.0.1 at 2020-06-03 15:10:59 -0400
+Processing by CustomersController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "customers_drivers" WHERE "customers_drivers"."customer_id" = ?[0m  [["customer_id", 1]]
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "customers" WHERE "customers"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/customers
+Completed 302 Found in 9ms (ActiveRecord: 0.6ms)
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Nereida"], ["last_name", "Langosh"], ["email", "janett.collier@sawaynbeier.com"], ["created_at", "2020-06-03 19:10:59.383647"], ["updated_at", "2020-06-03 19:10:59.383647"], ["phone", "6338182857"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Chantay"], ["last_name", "Lesch"], ["email", "easter@beahan.org"], ["created_at", "2020-06-03 19:10:59.389259"], ["updated_at", "2020-06-03 19:10:59.389259"], ["phone", "4189946515"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Laurel"], ["last_name", "Stanton"], ["email", "donella@hageneshaag.biz"], ["created_at", "2020-06-03 19:10:59.392638"], ["updated_at", "2020-06-03 19:10:59.392638"], ["phone", "5719036869"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Danilo"], ["last_name", "Legros"], ["email", "adan@marks.net"], ["created_at", "2020-06-03 19:10:59.396082"], ["updated_at", "2020-06-03 19:10:59.396082"], ["phone", "4919576728"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Racheal"], ["last_name", "Willms"], ["email", "jordon@parisian.net"], ["created_at", "2020-06-03 19:10:59.399926"], ["updated_at", "2020-06-03 19:10:59.399926"], ["phone", "8077776654"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/customers" for 127.0.0.1 at 2020-06-03 15:10:59 -0400
+Processing by CustomersController#index as HTML
+  Rendering customers/index.html.erb within layouts/customer_layout
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  Rendered customers/index.html.erb within layouts/customer_layout (2.1ms)
+Completed 200 OK in 8ms (Views: 6.1ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Mack"], ["last_name", "Langosh"], ["phone", "7977859632"], ["email", "roslyn_senger@okuneva.info"], ["created_at", "2020-06-03 19:13:47.222148"], ["updated_at", "2020-06-03 19:13:47.222148"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Frances"], ["last_name", "Bailey"], ["phone", "9142045170"], ["email", "fleta_gutkowski@wymannikolaus.info"], ["created_at", "2020-06-03 19:13:47.224379"], ["updated_at", "2020-06-03 19:13:47.224379"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Eleanora"], ["last_name", "Miller"], ["phone", "1740832790"], ["email", "evelina@wymansatterfield.com"], ["created_at", "2020-06-03 19:13:47.225716"], ["updated_at", "2020-06-03 19:13:47.225716"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Violeta"], ["last_name", "Goyette"], ["phone", "7085286186"], ["email", "will@flatley.io"], ["created_at", "2020-06-03 19:13:47.226967"], ["updated_at", "2020-06-03 19:13:47.226967"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Gaylord"], ["last_name", "Leffler"], ["phone", "6740647176"], ["email", "noelia.sawayn@toy.net"], ["created_at", "2020-06-03 19:13:47.228183"], ["updated_at", "2020-06-03 19:13:47.228183"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Allen"], ["last_name", "Leuschke"], ["phone", "6834040684"], ["email", "stanton.bruen@robertsvonrueden.info"], ["created_at", "2020-06-03 19:13:47.229380"], ["updated_at", "2020-06-03 19:13:47.229380"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Rayford"], ["last_name", "Leuschke"], ["phone", "6330572034"], ["email", "alleen@robel.info"], ["created_at", "2020-06-03 19:13:47.230574"], ["updated_at", "2020-06-03 19:13:47.230574"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Angelina"], ["last_name", "Klein"], ["phone", "7326933217"], ["email", "silas_kshlerin@reinger.co"], ["created_at", "2020-06-03 19:13:47.231752"], ["updated_at", "2020-06-03 19:13:47.231752"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Shanika"], ["last_name", "Haag"], ["phone", "5423909205"], ["email", "bee.dare@goldner.io"], ["created_at", "2020-06-03 19:13:47.233092"], ["updated_at", "2020-06-03 19:13:47.233092"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Geoffrey"], ["last_name", "Reichert"], ["phone", "8951862105"], ["email", "tonja@monahan.info"], ["created_at", "2020-06-03 19:13:47.235128"], ["updated_at", "2020-06-03 19:13:47.235128"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/customers" for 127.0.0.1 at 2020-06-03 15:13:47 -0400
+Processing by CustomersController#index as HTML
+  Rendering customers/index.html.erb within layouts/customer_layout
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  Rendered customers/index.html.erb within layouts/customer_layout (5.8ms)
+Completed 200 OK in 197ms (Views: 190.1ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Terence"], ["last_name", "Boehm"], ["phone", "6978952551"], ["email", "moshe_west@walter.name"], ["created_at", "2020-06-03 19:13:47.448171"], ["updated_at", "2020-06-03 19:13:47.448171"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/customers/1" for 127.0.0.1 at 2020-06-03 15:13:47 -0400
+Processing by CustomersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering customers/show.html.erb within layouts/customer_layout
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT "drivers".* FROM "drivers" INNER JOIN "customers_drivers" ON "drivers"."id" = "customers_drivers"."driver_id" WHERE "customers_drivers"."customer_id" = ?[0m  [["customer_id", 1]]
+  Rendered customers/show.html.erb within layouts/customer_layout (29.5ms)
+Completed 200 OK in 37ms (Views: 31.8ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/customers/5000" for 127.0.0.1 at 2020-06-03 15:13:47 -0400
+Processing by CustomersController#show as HTML
+  Parameters: {"id"=>"5000"}
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5000], ["LIMIT", 1]]
+We had a not found exception.
+Redirected to http://www.example.com/customers
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Shon"], ["last_name", "Heidenreich"], ["phone", "7307428775"], ["email", "timothy_bruen@ernser.name"], ["created_at", "2020-06-03 19:13:47.545917"], ["updated_at", "2020-06-03 19:13:47.545917"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Hunter"], ["last_name", "Champlin"], ["phone", "6762500627"], ["email", "chin@schowaltergerhold.biz"], ["created_at", "2020-06-03 19:13:47.548873"], ["updated_at", "2020-06-03 19:13:47.548873"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Taryn"], ["last_name", "Schinner"], ["phone", "2745993261"], ["email", "hans@williamsongulgowski.com"], ["created_at", "2020-06-03 19:13:47.551532"], ["updated_at", "2020-06-03 19:13:47.551532"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Reatha"], ["last_name", "Spencer"], ["phone", "9083665266"], ["email", "pearlie_rolfson@swift.biz"], ["created_at", "2020-06-03 19:13:47.554192"], ["updated_at", "2020-06-03 19:13:47.554192"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Cyrus"], ["last_name", "Hamill"], ["phone", "1157471384"], ["email", "ruel@jacobsdickinson.info"], ["created_at", "2020-06-03 19:13:47.556088"], ["updated_at", "2020-06-03 19:13:47.556088"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Mark"], ["last_name", "O'Connell"], ["phone", "2901003017"], ["email", "anitra@hilllheidenreich.com"], ["created_at", "2020-06-03 19:13:47.557781"], ["updated_at", "2020-06-03 19:13:47.557781"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Desmond"], ["last_name", "Wyman"], ["phone", "1399669811"], ["email", "tilda@krajcik.org"], ["created_at", "2020-06-03 19:13:47.559657"], ["updated_at", "2020-06-03 19:13:47.559657"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Ryan"], ["last_name", "Considine"], ["phone", "2816049165"], ["email", "chante.pollich@lakin.com"], ["created_at", "2020-06-03 19:13:47.561727"], ["updated_at", "2020-06-03 19:13:47.561727"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Arlyne"], ["last_name", "Greenholt"], ["phone", "2933914846"], ["email", "tamera@jakubowskiturner.info"], ["created_at", "2020-06-03 19:13:47.564296"], ["updated_at", "2020-06-03 19:13:47.564296"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Thora"], ["last_name", "Runte"], ["phone", "6901875006"], ["email", "miles.johnson@rodriguez.biz"], ["created_at", "2020-06-03 19:13:47.566459"], ["updated_at", "2020-06-03 19:13:47.566459"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/customers/new" for 127.0.0.1 at 2020-06-03 15:13:47 -0400
+Processing by CustomersController#new as HTML
+  Rendering customers/new.html.erb within layouts/customer_layout
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT "drivers".* FROM "drivers"[0m
+  Rendered customers/_form.html.erb (12.4ms)
+  Rendered customers/new.html.erb within layouts/customer_layout (13.5ms)
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Ignacio"], ["last_name", "Kreiger"], ["phone", "5221394986"], ["email", "dexter.lesch@tillman.io"], ["created_at", "2020-06-03 19:13:47.589590"], ["updated_at", "2020-06-03 19:13:47.589590"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/customers/1/edit" for 127.0.0.1 at 2020-06-03 15:13:47 -0400
+Processing by CustomersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCustomer Load (0.0ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering customers/edit.html.erb within layouts/customer_layout
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT "drivers".* FROM "drivers"[0m
+  Rendered customers/_form.html.erb (3.6ms)
+  Rendered customers/edit.html.erb within layouts/customer_layout (4.8ms)
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "customers"[0m
+Started POST "/customers" for 127.0.0.1 at 2020-06-03 15:13:47 -0400
+Processing by CustomersController#create as HTML
+  Parameters: {"customer"=>{"last_name"=>"Cormier", "phone"=>"9317321279", "email"=>"sabrina_donnelly@emmerichhartmann.com"}}
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+We had a not found exception.
+Redirected to http://www.example.com/customers
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "customers"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Travis"], ["last_name", "Lubowitz"], ["phone", "1234567890"], ["email", "lillia@ruecker.net"], ["created_at", "2020-06-03 19:13:47.621823"], ["updated_at", "2020-06-03 19:13:47.621823"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PUT "/customers/1" for 127.0.0.1 at 2020-06-03 15:13:47 -0400
+Processing by CustomersController#update as HTML
+  Parameters: {"customer"=>{"phone"=>"1234567892"}, "id"=>"1"}
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "customers" SET "phone" = ?, "updated_at" = ? WHERE "customers"."id" = ?[0m  [["phone", "1234567892"], ["updated_at", "2020-06-03 19:13:47.627000"], ["id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/customers/1
+Completed 302 Found in 3ms (ActiveRecord: 0.3ms)
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Enrique"], ["last_name", "McKenzie"], ["phone", "7515107459"], ["email", "jacinto@rau.org"], ["created_at", "2020-06-03 19:13:47.633239"], ["updated_at", "2020-06-03 19:13:47.633239"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PUT "/customers/1" for 127.0.0.1 at 2020-06-03 15:13:47 -0400
+Processing by CustomersController#update as HTML
+  Parameters: {"customer"=>{"phone"=>"1234"}, "id"=>"1"}
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering customers/edit.html.erb within layouts/customer_layout
+  [1m[36mDriver Load (0.2ms)[0m  [1m[34mSELECT "drivers".* FROM "drivers"[0m
+  Rendered customers/_form.html.erb (17.5ms)
+  Rendered customers/edit.html.erb within layouts/customer_layout (19.1ms)
+Completed 200 OK in 35ms (Views: 31.3ms | ActiveRecord: 0.4ms)
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Alexia"], ["last_name", "Littel"], ["phone", "5908070209"], ["email", "joan.yost@krisnikolaus.io"], ["created_at", "2020-06-03 19:13:47.685428"], ["updated_at", "2020-06-03 19:13:47.685428"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started DELETE "/customers/1" for 127.0.0.1 at 2020-06-03 15:13:47 -0400
+Processing by CustomersController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "customers_drivers" WHERE "customers_drivers"."customer_id" = ?[0m  [["customer_id", 1]]
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "customers" WHERE "customers"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/customers
+Completed 302 Found in 11ms (ActiveRecord: 1.7ms)
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Philip"], ["last_name", "Schumm"], ["email", "stanley@hudson.org"], ["created_at", "2020-06-03 19:13:47.711399"], ["updated_at", "2020-06-03 19:13:47.711399"], ["phone", "8175300339"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Lowell"], ["last_name", "Roob"], ["email", "veda_grimes@walterjacobs.io"], ["created_at", "2020-06-03 19:13:47.717617"], ["updated_at", "2020-06-03 19:13:47.717617"], ["phone", "1863321766"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Jung"], ["last_name", "Boyer"], ["email", "micheal.jenkins@haag.org"], ["created_at", "2020-06-03 19:13:47.722790"], ["updated_at", "2020-06-03 19:13:47.722790"], ["phone", "4653699903"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Kattie"], ["last_name", "Stoltenberg"], ["email", "maryjane.bashirian@kozey.io"], ["created_at", "2020-06-03 19:13:47.726811"], ["updated_at", "2020-06-03 19:13:47.726811"], ["phone", "3940085078"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Rosalva"], ["last_name", "Hansen"], ["email", "elvis@gislasonhudson.com"], ["created_at", "2020-06-03 19:13:47.731977"], ["updated_at", "2020-06-03 19:13:47.731977"], ["phone", "9908091126"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Roman"], ["last_name", "Nicolas"], ["email", "bernie.kreiger@feeney.com"], ["created_at", "2020-06-03 19:13:47.738036"], ["updated_at", "2020-06-03 19:13:47.738036"], ["phone", "5856288571"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Antony"], ["last_name", "Dooley"], ["email", "charise@leannon.org"], ["created_at", "2020-06-03 19:13:47.744151"], ["updated_at", "2020-06-03 19:13:47.744151"], ["phone", "6636018936"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Arianne"], ["last_name", "King"], ["email", "gaylord.huel@wunsch.net"], ["created_at", "2020-06-03 19:13:47.749398"], ["updated_at", "2020-06-03 19:13:47.749398"], ["phone", "1765715722"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Elfrieda"], ["last_name", "Connelly"], ["email", "yong_willms@rodriguezschuster.com"], ["created_at", "2020-06-03 19:13:47.755018"], ["updated_at", "2020-06-03 19:13:47.755018"], ["phone", "3974838394"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Antonio"], ["last_name", "Morar"], ["email", "daniel@sipeshaley.io"], ["created_at", "2020-06-03 19:13:47.761836"], ["updated_at", "2020-06-03 19:13:47.761836"], ["phone", "4816124867"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/drivers" for 127.0.0.1 at 2020-06-03 15:13:47 -0400
+Processing by DriversController#index as HTML
+  Rendering drivers/index.html.erb within layouts/driver_layout
+  [1m[36mDriver Load (2.0ms)[0m  [1m[34mSELECT "drivers".* FROM "drivers"[0m
+  Rendered drivers/index.html.erb within layouts/driver_layout (16.6ms)
+Completed 200 OK in 25ms (Views: 21.0ms | ActiveRecord: 2.0ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Linh"], ["last_name", "Hegmann"], ["email", "neva@joneskihn.net"], ["created_at", "2020-06-03 19:13:47.807107"], ["updated_at", "2020-06-03 19:13:47.807107"], ["phone", "8065784286"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/drivers/1" for 127.0.0.1 at 2020-06-03 15:13:47 -0400
+Processing by DriversController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering drivers/show.html.erb within layouts/driver_layout
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" INNER JOIN "customers_drivers" ON "customers"."id" = "customers_drivers"."customer_id" WHERE "customers_drivers"."driver_id" = ?[0m  [["driver_id", 1]]
+  Rendered drivers/show.html.erb within layouts/driver_layout (8.2ms)
+Completed 200 OK in 15ms (Views: 11.8ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/drivers/5000" for 127.0.0.1 at 2020-06-03 15:13:47 -0400
+Processing by DriversController#show as HTML
+  Parameters: {"id"=>"5000"}
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = ? LIMIT ?[0m  [["id", 5000], ["LIMIT", 1]]
+We had a not found exception.
+Redirected to http://www.example.com/drivers
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Leslie"], ["last_name", "Jakubowski"], ["email", "bradly_douglas@jacobson.io"], ["created_at", "2020-06-03 19:13:47.844379"], ["updated_at", "2020-06-03 19:13:47.844379"], ["phone", "6943149916"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.8ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Merrill"], ["last_name", "King"], ["email", "jesus@durganbecker.org"], ["created_at", "2020-06-03 19:13:47.855120"], ["updated_at", "2020-06-03 19:13:47.855120"], ["phone", "8680209315"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Jason"], ["last_name", "Maggio"], ["email", "gale@emmerichwest.org"], ["created_at", "2020-06-03 19:13:47.861015"], ["updated_at", "2020-06-03 19:13:47.861015"], ["phone", "3792403189"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Odelia"], ["last_name", "Cormier"], ["email", "preston.parker@johnston.name"], ["created_at", "2020-06-03 19:13:47.864519"], ["updated_at", "2020-06-03 19:13:47.864519"], ["phone", "5615997178"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Becky"], ["last_name", "Wintheiser"], ["email", "erick@anderson.net"], ["created_at", "2020-06-03 19:13:47.877213"], ["updated_at", "2020-06-03 19:13:47.877213"], ["phone", "1280518300"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Logan"], ["last_name", "Haley"], ["email", "randolph.jacobs@jerdereilly.io"], ["created_at", "2020-06-03 19:13:47.879383"], ["updated_at", "2020-06-03 19:13:47.879383"], ["phone", "1546622469"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Jere"], ["last_name", "Volkman"], ["email", "irene@swaniawskiparisian.io"], ["created_at", "2020-06-03 19:13:47.881832"], ["updated_at", "2020-06-03 19:13:47.881832"], ["phone", "9982054720"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Gennie"], ["last_name", "Nicolas"], ["email", "james@haley.net"], ["created_at", "2020-06-03 19:13:47.884239"], ["updated_at", "2020-06-03 19:13:47.884239"], ["phone", "2683857710"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Miguel"], ["last_name", "Dibbert"], ["email", "tuan.runte@smith.name"], ["created_at", "2020-06-03 19:13:47.886447"], ["updated_at", "2020-06-03 19:13:47.886447"], ["phone", "1561523923"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Miesha"], ["last_name", "Corkery"], ["email", "scott@johnsonkertzmann.name"], ["created_at", "2020-06-03 19:13:47.889747"], ["updated_at", "2020-06-03 19:13:47.889747"], ["phone", "8941441529"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/drivers/new" for 127.0.0.1 at 2020-06-03 15:13:47 -0400
+Processing by DriversController#new as HTML
+  Rendering drivers/new.html.erb within layouts/driver_layout
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  Rendered drivers/_form.html.erb (5.7ms)
+  Rendered drivers/new.html.erb within layouts/driver_layout (9.2ms)
+Completed 200 OK in 15ms (Views: 12.5ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Rosalia"], ["last_name", "Connelly"], ["email", "gregorio_pagac@willhaley.net"], ["created_at", "2020-06-03 19:13:47.913356"], ["updated_at", "2020-06-03 19:13:47.913356"], ["phone", "9161818359"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/drivers/1/edit" for 127.0.0.1 at 2020-06-03 15:13:47 -0400
+Processing by DriversController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering drivers/edit.html.erb within layouts/driver_layout
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  Rendered drivers/_form.html.erb (3.7ms)
+  Rendered drivers/edit.html.erb within layouts/driver_layout (4.8ms)
+Completed 200 OK in 9ms (Views: 7.0ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "drivers"[0m
+Started POST "/drivers" for 127.0.0.1 at 2020-06-03 15:13:47 -0400
+Processing by DriversController#create as HTML
+  Parameters: {"driver"=>{"first_name"=>"Van", "last_name"=>"Homenick", "phone"=>"6402468885", "email"=>"angelique@langbosco.com"}}
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+We had a not found exception.
+Redirected to http://www.example.com/drivers
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "drivers"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "drivers"[0m
+Started POST "/drivers" for 127.0.0.1 at 2020-06-03 15:13:47 -0400
+Processing by DriversController#create as HTML
+  Parameters: {"driver"=>{"last_name"=>"Welch", "phone"=>"5669044324", "email"=>"angelika_shanahan@becker.org"}}
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+We had a not found exception.
+Redirected to http://www.example.com/drivers
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "drivers"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Lorenzo"], ["last_name", "Fisher"], ["email", "milagro_christiansen@franeckiosinski.org"], ["created_at", "2020-06-03 19:13:47.959207"], ["updated_at", "2020-06-03 19:13:47.959207"], ["phone", "1234567890"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PUT "/drivers/1" for 127.0.0.1 at 2020-06-03 15:13:47 -0400
+Processing by DriversController#update as HTML
+  Parameters: {"driver"=>{"phone"=>"1234567892"}, "id"=>"1"}
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "drivers" SET "phone" = ?, "updated_at" = ? WHERE "drivers"."id" = ?[0m  [["phone", "1234567892"], ["updated_at", "2020-06-03 19:13:47.963978"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/drivers/1
+Completed 302 Found in 4ms (ActiveRecord: 0.3ms)
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Bernie"], ["last_name", "Halvorson"], ["email", "kris@marquardt.net"], ["created_at", "2020-06-03 19:13:47.972250"], ["updated_at", "2020-06-03 19:13:47.972250"], ["phone", "9314016866"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PUT "/drivers/1" for 127.0.0.1 at 2020-06-03 15:13:47 -0400
+Processing by DriversController#update as HTML
+  Parameters: {"driver"=>{"phone"=>"1234"}, "id"=>"1"}
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering drivers/edit.html.erb within layouts/driver_layout
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  Rendered drivers/_form.html.erb (14.9ms)
+  Rendered drivers/edit.html.erb within layouts/driver_layout (16.3ms)
+Completed 200 OK in 26ms (Views: 22.3ms | ActiveRecord: 0.3ms)
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Rich"], ["last_name", "Kuhlman"], ["email", "doug@turcottejenkins.net"], ["created_at", "2020-06-03 19:13:48.012724"], ["updated_at", "2020-06-03 19:13:48.012724"], ["phone", "9976730892"]]
+  [1m[35m (0.2ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started DELETE "/drivers/1" for 127.0.0.1 at 2020-06-03 15:13:48 -0400
+Processing by DriversController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "customers_drivers" WHERE "customers_drivers"."driver_id" = ?[0m  [["driver_id", 1]]
+  [1m[35mSQL (0.2ms)[0m  [1m[31mDELETE FROM "drivers" WHERE "drivers"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/drivers
+Completed 302 Found in 8ms (ActiveRecord: 1.6ms)
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Lakenya"], ["last_name", "Gerhold"], ["phone", "5278919279"], ["email", "torie_haley@feest.io"], ["created_at", "2020-06-03 19:14:49.125348"], ["updated_at", "2020-06-03 19:14:49.125348"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Desirae"], ["last_name", "Wunsch"], ["phone", "3863410927"], ["email", "royal@osinski.co"], ["created_at", "2020-06-03 19:14:49.127641"], ["updated_at", "2020-06-03 19:14:49.127641"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Ira"], ["last_name", "Runolfsdottir"], ["phone", "3789406226"], ["email", "irina@oberbrunnerkuhn.net"], ["created_at", "2020-06-03 19:14:49.129300"], ["updated_at", "2020-06-03 19:14:49.129300"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Arthur"], ["last_name", "Boyle"], ["phone", "6209030511"], ["email", "agustina.purdy@beattywintheiser.org"], ["created_at", "2020-06-03 19:14:49.130685"], ["updated_at", "2020-06-03 19:14:49.130685"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Deon"], ["last_name", "Padberg"], ["phone", "3763080364"], ["email", "jewel_kulas@ward.io"], ["created_at", "2020-06-03 19:14:49.131985"], ["updated_at", "2020-06-03 19:14:49.131985"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Maryalice"], ["last_name", "Goyette"], ["phone", "6160221549"], ["email", "josephina.tremblay@keeling.io"], ["created_at", "2020-06-03 19:14:49.133267"], ["updated_at", "2020-06-03 19:14:49.133267"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Edmund"], ["last_name", "Denesik"], ["phone", "7643955334"], ["email", "lelah_block@beahan.biz"], ["created_at", "2020-06-03 19:14:49.135234"], ["updated_at", "2020-06-03 19:14:49.135234"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Elza"], ["last_name", "Kemmer"], ["phone", "2989646503"], ["email", "guillermo@gaylord.biz"], ["created_at", "2020-06-03 19:14:49.136812"], ["updated_at", "2020-06-03 19:14:49.136812"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Catrice"], ["last_name", "Kling"], ["phone", "9173724679"], ["email", "wes@bernier.org"], ["created_at", "2020-06-03 19:14:49.138572"], ["updated_at", "2020-06-03 19:14:49.138572"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Von"], ["last_name", "Mraz"], ["phone", "7930682354"], ["email", "dusty.mohr@mccullough.name"], ["created_at", "2020-06-03 19:14:49.140218"], ["updated_at", "2020-06-03 19:14:49.140218"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/customers" for 127.0.0.1 at 2020-06-03 15:14:49 -0400
+Processing by CustomersController#index as HTML
+  Rendering customers/index.html.erb within layouts/customer_layout
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  Rendered customers/index.html.erb within layouts/customer_layout (5.7ms)
+Completed 200 OK in 205ms (Views: 198.2ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Shante"], ["last_name", "Sanford"], ["phone", "2410804269"], ["email", "will@sauer.co"], ["created_at", "2020-06-03 19:14:49.358613"], ["updated_at", "2020-06-03 19:14:49.358613"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/customers/1" for 127.0.0.1 at 2020-06-03 15:14:49 -0400
+Processing by CustomersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering customers/show.html.erb within layouts/customer_layout
+  [1m[36mDriver Load (0.2ms)[0m  [1m[34mSELECT "drivers".* FROM "drivers" INNER JOIN "customers_drivers" ON "drivers"."id" = "customers_drivers"."driver_id" WHERE "customers_drivers"."customer_id" = ?[0m  [["customer_id", 1]]
+  Rendered customers/show.html.erb within layouts/customer_layout (18.4ms)
+Completed 200 OK in 23ms (Views: 20.1ms | ActiveRecord: 0.3ms)
+  [1m[35m (1.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/customers/5000" for 127.0.0.1 at 2020-06-03 15:14:49 -0400
+Processing by CustomersController#show as HTML
+  Parameters: {"id"=>"5000"}
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5000], ["LIMIT", 1]]
+We had a not found exception.
+Redirected to http://www.example.com/customers
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Gabriel"], ["last_name", "Marks"], ["phone", "9774923147"], ["email", "cayla_shields@towne.info"], ["created_at", "2020-06-03 19:14:49.393358"], ["updated_at", "2020-06-03 19:14:49.393358"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Roseanne"], ["last_name", "Hayes"], ["phone", "3177531890"], ["email", "mistie_denesik@kozeyskiles.io"], ["created_at", "2020-06-03 19:14:49.396394"], ["updated_at", "2020-06-03 19:14:49.396394"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Sonny"], ["last_name", "Powlowski"], ["phone", "1123124046"], ["email", "chau@stoltenberg.name"], ["created_at", "2020-06-03 19:14:49.398453"], ["updated_at", "2020-06-03 19:14:49.398453"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Monte"], ["last_name", "Mann"], ["phone", "1120589165"], ["email", "jewel_skiles@emmerich.org"], ["created_at", "2020-06-03 19:14:49.400629"], ["updated_at", "2020-06-03 19:14:49.400629"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Janey"], ["last_name", "McGlynn"], ["phone", "7787281227"], ["email", "alfreda@terry.io"], ["created_at", "2020-06-03 19:14:49.402992"], ["updated_at", "2020-06-03 19:14:49.402992"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Harland"], ["last_name", "Dare"], ["phone", "5482222443"], ["email", "fermina_kris@denesik.co"], ["created_at", "2020-06-03 19:14:49.404773"], ["updated_at", "2020-06-03 19:14:49.404773"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Tabetha"], ["last_name", "Stanton"], ["phone", "1558747299"], ["email", "jeromy_kub@skiles.com"], ["created_at", "2020-06-03 19:14:49.406330"], ["updated_at", "2020-06-03 19:14:49.406330"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Joshua"], ["last_name", "Monahan"], ["phone", "4685092099"], ["email", "refugia_powlowski@oreillyabernathy.org"], ["created_at", "2020-06-03 19:14:49.407785"], ["updated_at", "2020-06-03 19:14:49.407785"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Caleb"], ["last_name", "Nikolaus"], ["phone", "3827267414"], ["email", "cristine@ruelreinger.biz"], ["created_at", "2020-06-03 19:14:49.409266"], ["updated_at", "2020-06-03 19:14:49.409266"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Adrian"], ["last_name", "Graham"], ["phone", "9575555870"], ["email", "emmie@lynch.co"], ["created_at", "2020-06-03 19:14:49.410919"], ["updated_at", "2020-06-03 19:14:49.410919"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/customers/new" for 127.0.0.1 at 2020-06-03 15:14:49 -0400
+Processing by CustomersController#new as HTML
+  Rendering customers/new.html.erb within layouts/customer_layout
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT "drivers".* FROM "drivers"[0m
+  Rendered customers/_form.html.erb (33.6ms)
+  Rendered customers/new.html.erb within layouts/customer_layout (34.6ms)
+Completed 200 OK in 44ms (Views: 40.0ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.9ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Willian"], ["last_name", "Lindgren"], ["phone", "2419332602"], ["email", "raymond_roberts@bernier.co"], ["created_at", "2020-06-03 19:14:49.463349"], ["updated_at", "2020-06-03 19:14:49.463349"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/customers/1/edit" for 127.0.0.1 at 2020-06-03 15:14:49 -0400
+Processing by CustomersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCustomer Load (0.0ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering customers/edit.html.erb within layouts/customer_layout
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT "drivers".* FROM "drivers"[0m
+  Rendered customers/_form.html.erb (5.9ms)
+  Rendered customers/edit.html.erb within layouts/customer_layout (7.4ms)
+Completed 200 OK in 12ms (Views: 10.6ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "customers"[0m
+Started POST "/customers" for 127.0.0.1 at 2020-06-03 15:14:49 -0400
+Processing by CustomersController#create as HTML
+  Parameters: {"customer"=>{"last_name"=>"Howell", "phone"=>"4991158726", "email"=>"sterling.ernser@hoeger.info"}}
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+We had a not found exception.
+Redirected to http://www.example.com/customers
+Completed 302 Found in 10ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "customers"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Cortez"], ["last_name", "Langworth"], ["phone", "1234567890"], ["email", "ricarda@huelslang.com"], ["created_at", "2020-06-03 19:14:49.528138"], ["updated_at", "2020-06-03 19:14:49.528138"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PUT "/customers/1" for 127.0.0.1 at 2020-06-03 15:14:49 -0400
+Processing by CustomersController#update as HTML
+  Parameters: {"customer"=>{"phone"=>"1234567892"}, "id"=>"1"}
+  [1m[36mCustomer Load (0.7ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "customers" SET "phone" = ?, "updated_at" = ? WHERE "customers"."id" = ?[0m  [["phone", "1234567892"], ["updated_at", "2020-06-03 19:14:49.535767"], ["id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/customers/1
+Completed 302 Found in 6ms (ActiveRecord: 0.9ms)
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.7ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Floyd"], ["last_name", "Block"], ["phone", "8094915390"], ["email", "donita_bernhard@hackett.org"], ["created_at", "2020-06-03 19:14:49.547374"], ["updated_at", "2020-06-03 19:14:49.547374"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PUT "/customers/1" for 127.0.0.1 at 2020-06-03 15:14:49 -0400
+Processing by CustomersController#update as HTML
+  Parameters: {"customer"=>{"phone"=>"1234"}, "id"=>"1"}
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering customers/edit.html.erb within layouts/customer_layout
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT "drivers".* FROM "drivers"[0m
+  Rendered customers/_form.html.erb (13.2ms)
+  Rendered customers/edit.html.erb within layouts/customer_layout (15.0ms)
+Completed 200 OK in 25ms (Views: 20.8ms | ActiveRecord: 0.3ms)
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Kaila"], ["last_name", "Sauer"], ["phone", "6121200143"], ["email", "colene@bruen.io"], ["created_at", "2020-06-03 19:14:49.593454"], ["updated_at", "2020-06-03 19:14:49.593454"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started DELETE "/customers/1" for 127.0.0.1 at 2020-06-03 15:14:49 -0400
+Processing by CustomersController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "customers_drivers" WHERE "customers_drivers"."customer_id" = ?[0m  [["customer_id", 1]]
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "customers" WHERE "customers"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/customers
+Completed 302 Found in 4ms (ActiveRecord: 0.5ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Xavier"], ["last_name", "Heaney"], ["email", "gertrud.lakin@huelslind.info"], ["created_at", "2020-06-03 19:14:49.605037"], ["updated_at", "2020-06-03 19:14:49.605037"], ["phone", "4554567801"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Tiffany"], ["last_name", "Quigley"], ["email", "florentino_leuschke@swiftwill.net"], ["created_at", "2020-06-03 19:14:49.607827"], ["updated_at", "2020-06-03 19:14:49.607827"], ["phone", "3193395016"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Bryanna"], ["last_name", "Stoltenberg"], ["email", "bennett_ward@mertz.co"], ["created_at", "2020-06-03 19:14:49.609676"], ["updated_at", "2020-06-03 19:14:49.609676"], ["phone", "8295200447"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Maynard"], ["last_name", "Wilderman"], ["email", "ileen_keeling@maggiokuphal.org"], ["created_at", "2020-06-03 19:14:49.611358"], ["updated_at", "2020-06-03 19:14:49.611358"], ["phone", "3684419531"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Solomon"], ["last_name", "Gaylord"], ["email", "jeffie.kling@jenkins.biz"], ["created_at", "2020-06-03 19:14:49.613074"], ["updated_at", "2020-06-03 19:14:49.613074"], ["phone", "9358201326"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Houston"], ["last_name", "Rohan"], ["email", "barb.larson@shieldsrunolfon.name"], ["created_at", "2020-06-03 19:14:49.614937"], ["updated_at", "2020-06-03 19:14:49.614937"], ["phone", "1558114041"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Abram"], ["last_name", "Crist"], ["email", "shawana.collins@turcottemclaughlin.net"], ["created_at", "2020-06-03 19:14:49.617162"], ["updated_at", "2020-06-03 19:14:49.617162"], ["phone", "2373470999"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Jeremiah"], ["last_name", "Huels"], ["email", "brett.ruecker@oreilly.net"], ["created_at", "2020-06-03 19:14:49.618954"], ["updated_at", "2020-06-03 19:14:49.618954"], ["phone", "9078831776"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Ginger"], ["last_name", "Kuhn"], ["email", "milo@hoegercruickshank.info"], ["created_at", "2020-06-03 19:14:49.620577"], ["updated_at", "2020-06-03 19:14:49.620577"], ["phone", "5674207292"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Latasha"], ["last_name", "Labadie"], ["email", "kelle_zboncak@dietrichlubowitz.io"], ["created_at", "2020-06-03 19:14:49.622146"], ["updated_at", "2020-06-03 19:14:49.622146"], ["phone", "1139275680"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/drivers" for 127.0.0.1 at 2020-06-03 15:14:49 -0400
+Processing by DriversController#index as HTML
+  Rendering drivers/index.html.erb within layouts/driver_layout
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT "drivers".* FROM "drivers"[0m
+  Rendered drivers/index.html.erb within layouts/driver_layout (3.1ms)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Pricilla"], ["last_name", "Pfeffer"], ["email", "hiram_schaden@luettgen.co"], ["created_at", "2020-06-03 19:14:49.638103"], ["updated_at", "2020-06-03 19:14:49.638103"], ["phone", "4850381441"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/drivers/1" for 127.0.0.1 at 2020-06-03 15:14:49 -0400
+Processing by DriversController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering drivers/show.html.erb within layouts/driver_layout
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" INNER JOIN "customers_drivers" ON "customers"."id" = "customers_drivers"."customer_id" WHERE "customers_drivers"."driver_id" = ?[0m  [["driver_id", 1]]
+  Rendered drivers/show.html.erb within layouts/driver_layout (5.3ms)
+Completed 200 OK in 9ms (Views: 7.4ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/drivers/5000" for 127.0.0.1 at 2020-06-03 15:14:49 -0400
+Processing by DriversController#show as HTML
+  Parameters: {"id"=>"5000"}
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = ? LIMIT ?[0m  [["id", 5000], ["LIMIT", 1]]
+We had a not found exception.
+Redirected to http://www.example.com/drivers
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Angelo"], ["last_name", "Gutkowski"], ["email", "mellisa@grady.net"], ["created_at", "2020-06-03 19:14:49.657195"], ["updated_at", "2020-06-03 19:14:49.657195"], ["phone", "8810255529"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Michal"], ["last_name", "Carroll"], ["email", "titus@wolff.com"], ["created_at", "2020-06-03 19:14:49.665121"], ["updated_at", "2020-06-03 19:14:49.665121"], ["phone", "6815649695"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Aurea"], ["last_name", "Klocko"], ["email", "carl_mante@brown.co"], ["created_at", "2020-06-03 19:14:49.673085"], ["updated_at", "2020-06-03 19:14:49.673085"], ["phone", "5681773582"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Emory"], ["last_name", "Christiansen"], ["email", "mario_okon@bednar.co"], ["created_at", "2020-06-03 19:14:49.680024"], ["updated_at", "2020-06-03 19:14:49.680024"], ["phone", "7913688456"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Otto"], ["last_name", "Raynor"], ["email", "sylvia@paucekmarks.name"], ["created_at", "2020-06-03 19:14:49.683962"], ["updated_at", "2020-06-03 19:14:49.683962"], ["phone", "5345047928"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Jerome"], ["last_name", "Kessler"], ["email", "junie_medhurst@hoppefeeney.co"], ["created_at", "2020-06-03 19:14:49.687272"], ["updated_at", "2020-06-03 19:14:49.687272"], ["phone", "3709644754"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Lamont"], ["last_name", "Wolff"], ["email", "eduardo@hamillkautzer.net"], ["created_at", "2020-06-03 19:14:49.690472"], ["updated_at", "2020-06-03 19:14:49.690472"], ["phone", "4583452516"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Arnulfo"], ["last_name", "Hodkiewicz"], ["email", "shasta_nienow@daugherty.biz"], ["created_at", "2020-06-03 19:14:49.693718"], ["updated_at", "2020-06-03 19:14:49.693718"], ["phone", "7751636478"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Max"], ["last_name", "Cartwright"], ["email", "polly.miller@marvin.info"], ["created_at", "2020-06-03 19:14:49.696801"], ["updated_at", "2020-06-03 19:14:49.696801"], ["phone", "6122636805"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Buck"], ["last_name", "Gleason"], ["email", "shauna@medhurstlemke.com"], ["created_at", "2020-06-03 19:14:49.700093"], ["updated_at", "2020-06-03 19:14:49.700093"], ["phone", "2996280222"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/drivers/new" for 127.0.0.1 at 2020-06-03 15:14:49 -0400
+Processing by DriversController#new as HTML
+  Rendering drivers/new.html.erb within layouts/driver_layout
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  Rendered drivers/_form.html.erb (13.2ms)
+  Rendered drivers/new.html.erb within layouts/driver_layout (14.3ms)
+Completed 200 OK in 20ms (Views: 18.7ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Maryam"], ["last_name", "Pacocha"], ["email", "reie@treutel.org"], ["created_at", "2020-06-03 19:14:49.729400"], ["updated_at", "2020-06-03 19:14:49.729400"], ["phone", "3559474731"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/drivers/1/edit" for 127.0.0.1 at 2020-06-03 15:14:49 -0400
+Processing by DriversController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering drivers/edit.html.erb within layouts/driver_layout
+  [1m[36mCustomer Load (1.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  Rendered drivers/_form.html.erb (9.2ms)
+  Rendered drivers/edit.html.erb within layouts/driver_layout (11.6ms)
+Completed 200 OK in 22ms (Views: 18.7ms | ActiveRecord: 1.2ms)
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "drivers"[0m
+Started POST "/drivers" for 127.0.0.1 at 2020-06-03 15:14:49 -0400
+Processing by DriversController#create as HTML
+  Parameters: {"driver"=>{"last_name"=>"Krajcik", "phone"=>"8669078433", "email"=>"raphael.konopelski@ratkeeffertz.info"}}
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+We had a not found exception.
+Redirected to http://www.example.com/drivers
+Completed 302 Found in 3ms (ActiveRecord: 0.1ms)
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "drivers"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Marcus"], ["last_name", "Wiegand"], ["email", "michelina@gerhold.biz"], ["created_at", "2020-06-03 19:14:49.816092"], ["updated_at", "2020-06-03 19:14:49.816092"], ["phone", "1234567890"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PUT "/drivers/1" for 127.0.0.1 at 2020-06-03 15:14:49 -0400
+Processing by DriversController#update as HTML
+  Parameters: {"driver"=>{"phone"=>"1234567892"}, "id"=>"1"}
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "drivers" SET "phone" = ?, "updated_at" = ? WHERE "drivers"."id" = ?[0m  [["phone", "1234567892"], ["updated_at", "2020-06-03 19:14:49.822453"], ["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/drivers/1
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.9ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Elias"], ["last_name", "Rath"], ["email", "danuta@watsica.biz"], ["created_at", "2020-06-03 19:14:49.831699"], ["updated_at", "2020-06-03 19:14:49.831699"], ["phone", "2155910435"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PUT "/drivers/1" for 127.0.0.1 at 2020-06-03 15:14:49 -0400
+Processing by DriversController#update as HTML
+  Parameters: {"driver"=>{"phone"=>"1234"}, "id"=>"1"}
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering drivers/edit.html.erb within layouts/driver_layout
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  Rendered drivers/_form.html.erb (7.9ms)
+  Rendered drivers/edit.html.erb within layouts/driver_layout (9.8ms)
+Completed 200 OK in 18ms (Views: 13.5ms | ActiveRecord: 0.4ms)
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Torie"], ["last_name", "Metz"], ["email", "erich.grimes@block.co"], ["created_at", "2020-06-03 19:14:49.872885"], ["updated_at", "2020-06-03 19:14:49.872885"], ["phone", "5470351470"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started DELETE "/drivers/1" for 127.0.0.1 at 2020-06-03 15:14:49 -0400
+Processing by DriversController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[31mDELETE FROM "customers_drivers" WHERE "customers_drivers"."driver_id" = ?[0m  [["driver_id", 1]]
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "drivers" WHERE "drivers"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/drivers
+Completed 302 Found in 5ms (ActiveRecord: 0.6ms)
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Demetrius"], ["last_name", "McClure"], ["phone", "3492497800"], ["email", "elenore@davis.info"], ["created_at", "2020-06-03 19:16:05.257082"], ["updated_at", "2020-06-03 19:16:05.257082"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Kristopher"], ["last_name", "O'Conner"], ["phone", "7655705213"], ["email", "cindie_klocko@kilbackmitchell.io"], ["created_at", "2020-06-03 19:16:05.259184"], ["updated_at", "2020-06-03 19:16:05.259184"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Felecia"], ["last_name", "Cassin"], ["phone", "8949477774"], ["email", "luke@mayertharvey.io"], ["created_at", "2020-06-03 19:16:05.260461"], ["updated_at", "2020-06-03 19:16:05.260461"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Antionette"], ["last_name", "Feil"], ["phone", "2211623459"], ["email", "jackeline_flatley@cole.net"], ["created_at", "2020-06-03 19:16:05.261629"], ["updated_at", "2020-06-03 19:16:05.261629"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Melia"], ["last_name", "Lind"], ["phone", "2373513317"], ["email", "isabella_gibson@wiza.info"], ["created_at", "2020-06-03 19:16:05.262763"], ["updated_at", "2020-06-03 19:16:05.262763"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Romaine"], ["last_name", "Sipes"], ["phone", "9297364838"], ["email", "onita_schaefer@torphy.org"], ["created_at", "2020-06-03 19:16:05.263946"], ["updated_at", "2020-06-03 19:16:05.263946"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.0ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Noreen"], ["last_name", "Russel"], ["phone", "3528591766"], ["email", "yuriko@kreigerspencer.org"], ["created_at", "2020-06-03 19:16:05.265044"], ["updated_at", "2020-06-03 19:16:05.265044"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Weldon"], ["last_name", "Williamson"], ["phone", "6843518230"], ["email", "karly@strosin.com"], ["created_at", "2020-06-03 19:16:05.275672"], ["updated_at", "2020-06-03 19:16:05.275672"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Jarrod"], ["last_name", "Keebler"], ["phone", "1282951889"], ["email", "allegra_hauck@kautzerdare.co"], ["created_at", "2020-06-03 19:16:05.277476"], ["updated_at", "2020-06-03 19:16:05.277476"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Brandee"], ["last_name", "Altenwerth"], ["phone", "7348412450"], ["email", "rex_green@steubermueller.org"], ["created_at", "2020-06-03 19:16:05.278995"], ["updated_at", "2020-06-03 19:16:05.278995"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/customers" for 127.0.0.1 at 2020-06-03 15:16:05 -0400
+Processing by CustomersController#index as HTML
+  Rendering customers/index.html.erb within layouts/customer_layout
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  Rendered customers/index.html.erb within layouts/customer_layout (7.2ms)
+Completed 200 OK in 241ms (Views: 233.3ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Shawna"], ["last_name", "Mertz"], ["phone", "2749463290"], ["email", "samuel@keebler.biz"], ["created_at", "2020-06-03 19:16:05.535637"], ["updated_at", "2020-06-03 19:16:05.535637"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/customers/1" for 127.0.0.1 at 2020-06-03 15:16:05 -0400
+Processing by CustomersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering customers/show.html.erb within layouts/customer_layout
+  [1m[36mDriver Load (0.2ms)[0m  [1m[34mSELECT "drivers".* FROM "drivers" INNER JOIN "customers_drivers" ON "drivers"."id" = "customers_drivers"."driver_id" WHERE "customers_drivers"."customer_id" = ?[0m  [["customer_id", 1]]
+  Rendered customers/show.html.erb within layouts/customer_layout (65.1ms)
+Completed 200 OK in 72ms (Views: 67.5ms | ActiveRecord: 0.3ms)
+  [1m[35m (1.0ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/customers/5000" for 127.0.0.1 at 2020-06-03 15:16:05 -0400
+Processing by CustomersController#show as HTML
+  Parameters: {"id"=>"5000"}
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 5000], ["LIMIT", 1]]
+We had a not found exception.
+Redirected to http://www.example.com/customers
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Alfred"], ["last_name", "Friesen"], ["phone", "8434328160"], ["email", "tamela_hilll@okeefeschmitt.net"], ["created_at", "2020-06-03 19:16:05.621608"], ["updated_at", "2020-06-03 19:16:05.621608"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Bennett"], ["last_name", "Kihn"], ["phone", "7521202939"], ["email", "estrella@ryan.co"], ["created_at", "2020-06-03 19:16:05.623933"], ["updated_at", "2020-06-03 19:16:05.623933"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Tyree"], ["last_name", "Leffler"], ["phone", "2585548032"], ["email", "mahalia@gibsonbauch.info"], ["created_at", "2020-06-03 19:16:05.625881"], ["updated_at", "2020-06-03 19:16:05.625881"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Hui"], ["last_name", "Nikolaus"], ["phone", "1521757416"], ["email", "kenton_kuhn@herzog.name"], ["created_at", "2020-06-03 19:16:05.627459"], ["updated_at", "2020-06-03 19:16:05.627459"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Carmelo"], ["last_name", "Lowe"], ["phone", "7343243750"], ["email", "kim@binsbartoletti.io"], ["created_at", "2020-06-03 19:16:05.628938"], ["updated_at", "2020-06-03 19:16:05.628938"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Kermit"], ["last_name", "Reynolds"], ["phone", "5632531500"], ["email", "vina@kovacek.com"], ["created_at", "2020-06-03 19:16:05.630380"], ["updated_at", "2020-06-03 19:16:05.630380"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Wally"], ["last_name", "Funk"], ["phone", "5921623831"], ["email", "truman@gibson.name"], ["created_at", "2020-06-03 19:16:05.631799"], ["updated_at", "2020-06-03 19:16:05.631799"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Mariela"], ["last_name", "Lubowitz"], ["phone", "5514057988"], ["email", "eduardo@wuckertkunze.biz"], ["created_at", "2020-06-03 19:16:05.633219"], ["updated_at", "2020-06-03 19:16:05.633219"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Lakia"], ["last_name", "Wilkinson"], ["phone", "7318040151"], ["email", "kira.ohara@dubuquebarton.com"], ["created_at", "2020-06-03 19:16:05.634653"], ["updated_at", "2020-06-03 19:16:05.634653"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Harvey"], ["last_name", "Volkman"], ["phone", "4237820535"], ["email", "jasper_schoen@lefflerreichel.net"], ["created_at", "2020-06-03 19:16:05.636060"], ["updated_at", "2020-06-03 19:16:05.636060"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/customers/new" for 127.0.0.1 at 2020-06-03 15:16:05 -0400
+Processing by CustomersController#new as HTML
+  Rendering customers/new.html.erb within layouts/customer_layout
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT "drivers".* FROM "drivers"[0m
+  Rendered customers/_form.html.erb (11.3ms)
+  Rendered customers/new.html.erb within layouts/customer_layout (12.1ms)
+Completed 200 OK in 15ms (Views: 14.1ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Kerry"], ["last_name", "Larkin"], ["phone", "2213682457"], ["email", "ambrose@reynolds.info"], ["created_at", "2020-06-03 19:16:05.656132"], ["updated_at", "2020-06-03 19:16:05.656132"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/customers/1/edit" for 127.0.0.1 at 2020-06-03 15:16:05 -0400
+Processing by CustomersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering customers/edit.html.erb within layouts/customer_layout
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT "drivers".* FROM "drivers"[0m
+  Rendered customers/_form.html.erb (3.3ms)
+  Rendered customers/edit.html.erb within layouts/customer_layout (4.3ms)
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "customers"[0m
+Started POST "/customers" for 127.0.0.1 at 2020-06-03 15:16:05 -0400
+Processing by CustomersController#create as HTML
+  Parameters: {"customer"=>{"last_name"=>"Stark", "phone"=>"3179554787", "email"=>"wilford_wunsch@hauckmarquardt.com"}}
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+We had a not found exception.
+Redirected to http://www.example.com/customers
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "customers"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Tristan"], ["last_name", "McDermott"], ["phone", "1234567890"], ["email", "garland@langworthhagenes.co"], ["created_at", "2020-06-03 19:16:05.685974"], ["updated_at", "2020-06-03 19:16:05.685974"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PUT "/customers/1" for 127.0.0.1 at 2020-06-03 15:16:05 -0400
+Processing by CustomersController#update as HTML
+  Parameters: {"customer"=>{"phone"=>"1234567892"}, "id"=>"1"}
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "customers" SET "phone" = ?, "updated_at" = ? WHERE "customers"."id" = ?[0m  [["phone", "1234567892"], ["updated_at", "2020-06-03 19:16:05.691141"], ["id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/customers/1
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Carly"], ["last_name", "Mueller"], ["phone", "6672019354"], ["email", "lela@shanahan.biz"], ["created_at", "2020-06-03 19:16:05.696861"], ["updated_at", "2020-06-03 19:16:05.696861"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PUT "/customers/1" for 127.0.0.1 at 2020-06-03 15:16:05 -0400
+Processing by CustomersController#update as HTML
+  Parameters: {"customer"=>{"phone"=>"1234"}, "id"=>"1"}
+  [1m[36mCustomer Load (0.0ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering customers/edit.html.erb within layouts/customer_layout
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT "drivers".* FROM "drivers"[0m
+  Rendered customers/_form.html.erb (3.9ms)
+  Rendered customers/edit.html.erb within layouts/customer_layout (5.1ms)
+Completed 200 OK in 10ms (Views: 8.1ms | ActiveRecord: 0.3ms)
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "customers" ("first_name", "last_name", "phone", "email", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Irina"], ["last_name", "Kutch"], ["phone", "8678633576"], ["email", "trevor@pfeffer.biz"], ["created_at", "2020-06-03 19:16:05.714892"], ["updated_at", "2020-06-03 19:16:05.714892"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started DELETE "/customers/1" for 127.0.0.1 at 2020-06-03 15:16:05 -0400
+Processing by CustomersController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "customers_drivers" WHERE "customers_drivers"."customer_id" = ?[0m  [["customer_id", 1]]
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "customers" WHERE "customers"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/customers
+Completed 302 Found in 4ms (ActiveRecord: 0.6ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Obdulia"], ["last_name", "O'Hara"], ["email", "zane@schmidtspinka.biz"], ["created_at", "2020-06-03 19:16:05.726720"], ["updated_at", "2020-06-03 19:16:05.726720"], ["phone", "8478158459"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Gretchen"], ["last_name", "Cremin"], ["email", "latosha@bergstrom.info"], ["created_at", "2020-06-03 19:16:05.729218"], ["updated_at", "2020-06-03 19:16:05.729218"], ["phone", "7101486416"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Stacy"], ["last_name", "Crooks"], ["email", "clifford_marquardt@halvorsongoldner.org"], ["created_at", "2020-06-03 19:16:05.731255"], ["updated_at", "2020-06-03 19:16:05.731255"], ["phone", "6555456151"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Ilana"], ["last_name", "Renner"], ["email", "thea@johnson.info"], ["created_at", "2020-06-03 19:16:05.733564"], ["updated_at", "2020-06-03 19:16:05.733564"], ["phone", "2762951331"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Helen"], ["last_name", "Graham"], ["email", "forrest@kutch.biz"], ["created_at", "2020-06-03 19:16:05.736133"], ["updated_at", "2020-06-03 19:16:05.736133"], ["phone", "6887761575"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Stacee"], ["last_name", "Heaney"], ["email", "rueben@schusterparisian.info"], ["created_at", "2020-06-03 19:16:05.738299"], ["updated_at", "2020-06-03 19:16:05.738299"], ["phone", "1518462081"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.2ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Bronwyn"], ["last_name", "Watsica"], ["email", "darlene@vandervort.info"], ["created_at", "2020-06-03 19:16:05.740730"], ["updated_at", "2020-06-03 19:16:05.740730"], ["phone", "1525965992"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Odell"], ["last_name", "Koelpin"], ["email", "johna@kihnblock.name"], ["created_at", "2020-06-03 19:16:05.742935"], ["updated_at", "2020-06-03 19:16:05.742935"], ["phone", "5393183799"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Jorge"], ["last_name", "Auer"], ["email", "cordia@rempelbode.info"], ["created_at", "2020-06-03 19:16:05.744670"], ["updated_at", "2020-06-03 19:16:05.744670"], ["phone", "7105262558"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Hipolito"], ["last_name", "Mante"], ["email", "corinne_tromp@hammesrunolfsdottir.name"], ["created_at", "2020-06-03 19:16:05.746256"], ["updated_at", "2020-06-03 19:16:05.746256"], ["phone", "4275876733"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/drivers" for 127.0.0.1 at 2020-06-03 15:16:05 -0400
+Processing by DriversController#index as HTML
+  Rendering drivers/index.html.erb within layouts/driver_layout
+  [1m[36mDriver Load (0.2ms)[0m  [1m[34mSELECT "drivers".* FROM "drivers"[0m
+  Rendered drivers/index.html.erb within layouts/driver_layout (2.8ms)
+Completed 200 OK in 6ms (Views: 4.9ms | ActiveRecord: 0.2ms)
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Jerrold"], ["last_name", "Larkin"], ["email", "lenna@ferrycrona.co"], ["created_at", "2020-06-03 19:16:05.760652"], ["updated_at", "2020-06-03 19:16:05.760652"], ["phone", "2991428675"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/drivers/1" for 127.0.0.1 at 2020-06-03 15:16:05 -0400
+Processing by DriversController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDriver Load (0.0ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering drivers/show.html.erb within layouts/driver_layout
+  [1m[36mCustomer Load (0.2ms)[0m  [1m[34mSELECT "customers".* FROM "customers" INNER JOIN "customers_drivers" ON "customers"."id" = "customers_drivers"."customer_id" WHERE "customers_drivers"."driver_id" = ?[0m  [["driver_id", 1]]
+  Rendered drivers/show.html.erb within layouts/driver_layout (5.2ms)
+Completed 200 OK in 9ms (Views: 7.1ms | ActiveRecord: 0.3ms)
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+Started GET "/drivers/5000" for 127.0.0.1 at 2020-06-03 15:16:05 -0400
+Processing by DriversController#show as HTML
+  Parameters: {"id"=>"5000"}
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = ? LIMIT ?[0m  [["id", 5000], ["LIMIT", 1]]
+We had a not found exception.
+Redirected to http://www.example.com/drivers
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Tiesha"], ["last_name", "McCullough"], ["email", "reginia@auerrenner.info"], ["created_at", "2020-06-03 19:16:05.780841"], ["updated_at", "2020-06-03 19:16:05.780841"], ["phone", "1213353605"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Karlene"], ["last_name", "Fadel"], ["email", "apolonia_vandervort@gerholdschinner.net"], ["created_at", "2020-06-03 19:16:05.783143"], ["updated_at", "2020-06-03 19:16:05.783143"], ["phone", "1440358953"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Keenan"], ["last_name", "Wilkinson"], ["email", "clifford@bode.net"], ["created_at", "2020-06-03 19:16:05.785274"], ["updated_at", "2020-06-03 19:16:05.785274"], ["phone", "5218040893"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Frank"], ["last_name", "Zemlak"], ["email", "milly_donnelly@effertz.org"], ["created_at", "2020-06-03 19:16:05.787109"], ["updated_at", "2020-06-03 19:16:05.787109"], ["phone", "5723943707"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Galen"], ["last_name", "Hyatt"], ["email", "eli@kochmurazik.name"], ["created_at", "2020-06-03 19:16:05.788890"], ["updated_at", "2020-06-03 19:16:05.788890"], ["phone", "6937633539"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Adolfo"], ["last_name", "Tillman"], ["email", "salvador@grimes.name"], ["created_at", "2020-06-03 19:16:05.790729"], ["updated_at", "2020-06-03 19:16:05.790729"], ["phone", "9389061588"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Douglas"], ["last_name", "Purdy"], ["email", "parthenia_cain@monahan.info"], ["created_at", "2020-06-03 19:16:05.792317"], ["updated_at", "2020-06-03 19:16:05.792317"], ["phone", "8919766278"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Leonard"], ["last_name", "Spinka"], ["email", "jacinta@dibbert.name"], ["created_at", "2020-06-03 19:16:05.793924"], ["updated_at", "2020-06-03 19:16:05.793924"], ["phone", "8502393995"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Roseanna"], ["last_name", "Marks"], ["email", "adalberto_zboncak@dibbertmonahan.name"], ["created_at", "2020-06-03 19:16:05.795752"], ["updated_at", "2020-06-03 19:16:05.795752"], ["phone", "2382067363"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Clemente"], ["last_name", "Hahn"], ["email", "warner@dietrichwalsh.co"], ["created_at", "2020-06-03 19:16:05.797235"], ["updated_at", "2020-06-03 19:16:05.797235"], ["phone", "1335401678"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/drivers/new" for 127.0.0.1 at 2020-06-03 15:16:05 -0400
+Processing by DriversController#new as HTML
+  Rendering drivers/new.html.erb within layouts/driver_layout
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  Rendered drivers/_form.html.erb (3.6ms)
+  Rendered drivers/new.html.erb within layouts/driver_layout (4.4ms)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Andreas"], ["last_name", "Carroll"], ["email", "alonso.bashirian@harris.name"], ["created_at", "2020-06-03 19:16:05.809311"], ["updated_at", "2020-06-03 19:16:05.809311"], ["phone", "8692419881"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started GET "/drivers/1/edit" for 127.0.0.1 at 2020-06-03 15:16:05 -0400
+Processing by DriversController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDriver Load (0.0ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering drivers/edit.html.erb within layouts/driver_layout
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  Rendered drivers/_form.html.erb (2.9ms)
+  Rendered drivers/edit.html.erb within layouts/driver_layout (3.8ms)
+Completed 200 OK in 7ms (Views: 5.5ms | ActiveRecord: 0.1ms)
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "drivers"[0m
+Started POST "/drivers" for 127.0.0.1 at 2020-06-03 15:16:05 -0400
+Processing by DriversController#create as HTML
+  Parameters: {"driver"=>{"last_name"=>"Bartoletti", "phone"=>"9450887569", "email"=>"grover_funk@bruen.co"}}
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT  "customers".* FROM "customers" WHERE "customers"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+We had a not found exception.
+Redirected to http://www.example.com/drivers
+Completed 302 Found in 1ms (ActiveRecord: 0.1ms)
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "drivers"[0m
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Molly"], ["last_name", "Heathcote"], ["email", "lawrence@hickle.info"], ["created_at", "2020-06-03 19:16:05.828069"], ["updated_at", "2020-06-03 19:16:05.828069"], ["phone", "1234567890"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PUT "/drivers/1" for 127.0.0.1 at 2020-06-03 15:16:05 -0400
+Processing by DriversController#update as HTML
+  Parameters: {"driver"=>{"phone"=>"1234567892"}, "id"=>"1"}
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[33mUPDATE "drivers" SET "phone" = ?, "updated_at" = ? WHERE "drivers"."id" = ?[0m  [["phone", "1234567892"], ["updated_at", "2020-06-03 19:16:05.832081"], ["id", 1]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/drivers/1
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+  [1m[36mDriver Load (0.0ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.4ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Eugenio"], ["last_name", "Mayer"], ["email", "lynne.oconnell@altenwerth.name"], ["created_at", "2020-06-03 19:16:05.837164"], ["updated_at", "2020-06-03 19:16:05.837164"], ["phone", "3702517777"]]
+  [1m[35m (0.0ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started PUT "/drivers/1" for 127.0.0.1 at 2020-06-03 15:16:05 -0400
+Processing by DriversController#update as HTML
+  Parameters: {"driver"=>{"phone"=>"1234"}, "id"=>"1"}
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35m (0.1ms)[0m  [1m[31mROLLBACK TO SAVEPOINT active_record_1[0m
+  Rendering drivers/edit.html.erb within layouts/driver_layout
+  [1m[36mCustomer Load (0.1ms)[0m  [1m[34mSELECT "customers".* FROM "customers"[0m
+  Rendered drivers/_form.html.erb (3.6ms)
+  Rendered drivers/edit.html.erb within layouts/driver_layout (4.8ms)
+Completed 200 OK in 13ms (Views: 8.0ms | ActiveRecord: 0.4ms)
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "drivers" ("first_name", "last_name", "email", "created_at", "updated_at", "phone") VALUES (?, ?, ?, ?, ?, ?)[0m  [["first_name", "Kanesha"], ["last_name", "Braun"], ["email", "octavio.hills@dickensbruen.io"], ["created_at", "2020-06-03 19:16:05.858839"], ["updated_at", "2020-06-03 19:16:05.858839"], ["phone", "7516586008"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Started DELETE "/drivers/1" for 127.0.0.1 at 2020-06-03 15:16:05 -0400
+Processing by DriversController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mDriver Load (0.1ms)[0m  [1m[34mSELECT  "drivers".* FROM "drivers" WHERE "drivers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "customers_drivers" WHERE "customers_drivers"."driver_id" = ?[0m  [["driver_id", 1]]
+  [1m[35mSQL (0.1ms)[0m  [1m[31mDELETE FROM "drivers" WHERE "drivers"."id" = ?[0m  [["id", 1]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://www.example.com/drivers
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms)
+  [1m[35m (0.6ms)[0m  [1m[31mrollback transaction[0m
